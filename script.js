@@ -99,16 +99,20 @@ function generateStylish(name){
 
 function copyAll(){
 
-const usernames = document.querySelectorAll("#result span");
+    const usernames = document.querySelectorAll("#result span");
 
-let text = "";
+    if(usernames.length === 0){
+        alert("Generate usernames first!");
+        return;
+    }
 
-usernames.forEach(function(item){
-text += item.innerText + "\n";
-});
+    let text = "";
 
-navigator.clipboard.writeText(text);
+    usernames.forEach(function(item){
+        text += item.innerText + "\n";
+    });
 
-alert("All usernames copied!");
+    navigator.clipboard.writeText(text);
 
+    alert("All usernames copied!");
 }
