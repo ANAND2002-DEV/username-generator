@@ -1,5 +1,5 @@
 body{
-font-family: Arial;
+font-family: Arial, sans-serif;
 background:#0f172a;
 color:white;
 display:flex;
@@ -11,20 +11,22 @@ height:100vh;
 .container{
 background:#1e293b;
 padding:40px;
-border-radius:10px;
-width:400px;
+border-radius:12px;
+width:420px;
 text-align:center;
+}
+
+.tagline{
+font-size:14px;
+margin-bottom:15px;
+color:#cbd5f5;
 }
 
 input{
 width:100%;
 padding:10px;
 border:none;
-border-radius:5px;
-margin-bottom:20px;
-}
-
-.buttons{
+border-radius:6px;
 margin-bottom:20px;
 }
 
@@ -32,7 +34,7 @@ button{
 padding:10px 15px;
 margin:5px;
 border:none;
-border-radius:5px;
+border-radius:6px;
 background:#3b82f6;
 color:white;
 cursor:pointer;
@@ -45,8 +47,8 @@ background:#2563eb;
 .username{
 background:#0f172a;
 padding:10px;
-margin:5px 0;
-border-radius:5px;
+margin-top:8px;
+border-radius:6px;
 display:flex;
 justify-content:space-between;
 align-items:center;
