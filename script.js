@@ -96,3 +96,19 @@ function generateStylish(name){
         stylishDiv.appendChild(box);
     });
 }
+
+function copyAll(){
+
+const usernames = document.querySelectorAll("#result span");
+
+let text = "";
+
+usernames.forEach(function(item){
+text += item.innerText + "\n";
+});
+
+navigator.clipboard.writeText(text);
+
+alert("All usernames copied!");
+
+}
