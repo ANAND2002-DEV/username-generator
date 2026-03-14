@@ -1,52 +1,58 @@
 function generate(){
 
-let name = document.getElementById("name").value.toLowerCase();
+    const name = document.getElementById("name").value;
 
-let prefixes = ["king","dark","real","official","legend","mr","pro","alpha","elite","ghost"];
-let suffixes = ["gamer","yt","live","boss","zone","world","hub","army"];
-let symbols = ["★","✿","ツ","亗","彡","✧","✦","✪","☯","⚡"];
-let numbers = ["007","99","123","777","01","10","999"];
+    if(name === ""){
+        alert("Please enter a name");
+        return;
+    }
 
-let output="";
+    const prefixes = [
+        "king",
+        "real",
+        "its",
+        "the",
+        "official",
+        "legend"
+    ];
 
-for(let i=0;i<25;i++){
+    const symbols = [
+        "_",
+        ".",
+        "x",
+        "xo",
+        "dev",
+        "exe"
+    ];
 
-let p = prefixes[Math.floor(Math.random()*prefixes.length)];
-let s = suffixes[Math.floor(Math.random()*suffixes.length)];
-let sym = symbols[Math.floor(Math.random()*symbols.length)];
-let num = numbers[Math.floor(Math.random()*numbers.length)];
+    const numbers = [
+        "7",
+        "77",
+        "99",
+        "111",
+        "444",
+        "999"
+    ];
 
-let patterns = [
-sym + name + sym,
-p + "_" + name,
-name + "_" + s,
-sym + name + num,
-p + name + num,
-name + sym + s,
-sym + p + "_" + name + sym,
-name + "_" + num,
-p + "_" + name + "_" + s,
-sym + name + "_" + s
-];
+    const randomPrefix = prefixes[Math.floor(Math.random()*prefixes.length)];
+    const randomSymbol = symbols[Math.floor(Math.random()*symbols.length)];
+    const randomNumber = numbers[Math.floor(Math.random()*numbers.length)];
 
-let username = patterns[Math.floor(Math.random()*patterns.length)];
+    const username = randomPrefix + randomSymbol + name + randomNumber;
 
-output += `
-<div class="username-box">
-<span>${username}</span>
-<button onclick="copyText('${username}')">Copy</button>
-</div>
-`;
-
+    document.getElementById("result").innerText = username;
 }
 
-document.getElementById("result").innerHTML = output;
+function copyUsername(){
 
-}
+    const username = document.getElementById("result").innerText;
 
-function copyText(text){
+    if(username === ""){
+        alert("Generate a username first!");
+        return;
+    }
 
-navigator.clipboard.writeText(text);
-alert("Copied: " + text);
+    navigator.clipboard.writeText(username);
 
+    alert("Username copied!");
 }
