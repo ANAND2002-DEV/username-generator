@@ -5,12 +5,14 @@ body{
 
     display:flex;
     justify-content:center;
+    align-items:flex-start;
 
     min-height:100vh;
     padding:40px 15px;
 
     overflow-y:auto;
 }
+
 .container{
     background:#1e293b;
     padding:35px;
@@ -21,6 +23,7 @@ body{
 
     text-align:center;
 }
+
 
 .tagline{
     font-size:14px;
