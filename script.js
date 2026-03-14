@@ -12,7 +12,12 @@ const prefixes = [
 ];
 
 const symbols = [
-"_",".","x","xo","__","_x","xx","-"
+"_",".","-","__","..","--",
+"x","xx","xo","_x",
+"yt","op","ff","pro",
+"404","777","999",
+"exe","dev","bot",
+"ツ","メ","乂"
 ];
 
 const suffixes = [
