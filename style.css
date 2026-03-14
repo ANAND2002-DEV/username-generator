@@ -70,3 +70,18 @@ button:hover{
     padding:5px 10px;
     font-size:12px;
 }
+
+.copyAllBtn{
+    margin-top:10px;
+    padding:6px 14px;
+    font-size:13px;
+    border:none;
+    border-radius:6px;
+    background:#22c55e;
+    color:white;
+    cursor:pointer;
+}
+
+.copyAllBtn:hover{
+    background:#16a34a;
+}
