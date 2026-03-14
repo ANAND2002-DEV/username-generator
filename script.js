@@ -3,22 +3,36 @@ function generate(){
 let name = document.getElementById("name").value.toLowerCase();
 
 let prefixes = ["king","dark","real","official","legend","mr","pro","alpha","elite","ghost"];
-
 let suffixes = ["gamer","yt","live","boss","king","x","zone","world","hub","army"];
-
-let numbers = ["007","99","123","777","01","x","pro","dev","10","999"];
+let symbols = ["★","✿","ツ","亗","彡","✧","✦","✪","☯","⚡","☠"];
+let numbers = ["007","99","123","777","01","10","999"];
 
 let output="";
 
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
 
 let p = prefixes[Math.floor(Math.random()*prefixes.length)];
 let s = suffixes[Math.floor(Math.random()*suffixes.length)];
-let n = numbers[Math.floor(Math.random()*numbers.length)];
+let sym = symbols[Math.floor(Math.random()*symbols.length)];
+let num = numbers[Math.floor(Math.random()*numbers.length)];
 
-let username = p+"_"+name+"_"+s+n;
+let patterns = [
+sym + name + sym,
+p + "_" + name,
+name + "_" + s,
+sym + name + num,
+p + name + num,
+name + sym + s,
+sym + p + "_" + name + sym,
+name + "_" + num,
+p + "_" + name + "_" + s,
+sym + name + "_" + s
+];
+
+let username = patterns[Math.floor(Math.random()*patterns.length)];
 
 output += "<p>"+username+"</p>";
+
 }
 
 document.getElementById("result").innerHTML = output;
