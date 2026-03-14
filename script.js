@@ -106,3 +106,4 @@ stylishDiv.appendChild(box);
 });
 
 }
+generateStylish(name);
