@@ -3,8 +3,8 @@ function generate(){
 let name = document.getElementById("name").value.toLowerCase();
 
 let prefixes = ["king","dark","real","official","legend","mr","pro","alpha","elite","ghost"];
-let suffixes = ["gamer","yt","live","boss","king","x","zone","world","hub","army"];
-let symbols = ["★","✿","ツ","亗","彡","✧","✦","✪","☯","⚡","☠"];
+let suffixes = ["gamer","yt","live","boss","zone","world","hub","army"];
+let symbols = ["★","✿","ツ","亗","彡","✧","✦","✪","☯","⚡"];
 let numbers = ["007","99","123","777","01","10","999"];
 
 let output="";
@@ -31,10 +31,22 @@ sym + name + "_" + s
 
 let username = patterns[Math.floor(Math.random()*patterns.length)];
 
-output += "<p>"+username+"</p>";
+output += `
+<div class="username-box">
+<span>${username}</span>
+<button onclick="copyText('${username}')">Copy</button>
+</div>
+`;
 
 }
 
 document.getElementById("result").innerHTML = output;
+
+}
+
+function copyText(text){
+
+navigator.clipboard.writeText(text);
+alert("Copied: " + text);
 
 }
