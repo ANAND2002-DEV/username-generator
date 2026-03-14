@@ -1,6 +1,6 @@
 function generateUsernames(){
 
-const name = document.getElementById("name").value.trim();
+const name = document.getElementById("nameInput").value.trim();
 
 if(name === ""){
 alert("Please enter your name");
@@ -8,15 +8,15 @@ return;
 }
 
 const prefixes = [
-"king","real","its","the","official","legend","dark","ghost"
+"king","real","its","the","legend","ghost","dark","official"
 ];
 
 const symbols = [
-"_",".","x","xo","__","xx","_x","_xo"
+"_",".","x","xo","__","_x","xx","-"
 ];
 
 const suffixes = [
-"7","77","99","111","444","999","yt","op","pro","ff"
+"7","77","99","111","444","999","yt","op","ff","pro"
 ];
 
 const resultDiv = document.getElementById("result");
@@ -30,8 +30,8 @@ const suffix = suffixes[Math.floor(Math.random()*suffixes.length)];
 
 const username = prefix + symbol + name + suffix;
 
-const usernameBox = document.createElement("div");
-usernameBox.className = "username";
+const box = document.createElement("div");
+box.className = "username";
 
 const text = document.createElement("span");
 text.innerText = username;
@@ -45,10 +45,10 @@ navigator.clipboard.writeText(username);
 copyBtn.innerText = "Copied!";
 };
 
-usernameBox.appendChild(text);
-usernameBox.appendChild(copyBtn);
+box.appendChild(text);
+box.appendChild(copyBtn);
 
-resultDiv.appendChild(usernameBox);
+resultDiv.appendChild(box);
 
 }
 
