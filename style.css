@@ -59,3 +59,12 @@ background:#22c55e;
 padding:5px 10px;
 font-size:12px;
 }
+#stylishResult .username{
+background:#020617;
+padding:10px;
+margin-top:6px;
+border-radius:6px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
