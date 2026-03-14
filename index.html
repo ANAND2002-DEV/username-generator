@@ -2,30 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Username Generator</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Username Generator</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>Username Generator</h1>
+<h1>Username Generator</h1>
+<p class="tagline">Generate cool usernames for gaming & social media</p>
 
-    <p class="tagline">Generate cool usernames for gaming, Instagram and social media</p>
+<input type="text" id="name" placeholder="Enter your name">
 
-    <input type="text" id="name" placeholder="Enter your name">
+<div class="buttons">
+<button onclick="generateUsernames()">Generate</button>
+<button onclick="generateUsernames()">Generate More</button>
+</div>
 
-    <div class="buttons">
-        <button onclick="generate()">Generate</button>
-        <button onclick="generate()">Generate More</button>
-        <button onclick="copyUsername()">Copy</button>
-    </div>
-
-    <div class="result-box">
-        <p id="result"></p>
-    </div>
+<div id="result"></div>
 
 </div>
 
