@@ -1,50 +1,64 @@
 body{
-font-family: Arial;
-background: linear-gradient(135deg,#1e3c72,#2a5298);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-margin:0;
-color:white;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
 .container{
-background:white;
-color:black;
-padding:40px;
-border-radius:10px;
-width:400px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+    background:#1e293b;
+    padding:40px;
+    border-radius:12px;
+    width:350px;
 }
 
 h1{
-margin-bottom:20px;
+    margin-bottom:10px;
+}
+
+.tagline{
+    font-size:14px;
+    color:#cbd5f5;
+    margin-bottom:20px;
 }
 
 input{
-padding:12px;
-width:70%;
-border-radius:5px;
-border:1px solid #ccc;
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    margin-bottom:20px;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:20px;
 }
 
 button{
-padding:10px 15px;
-border:none;
-background:#2a5298;
-color:white;
-border-radius:5px;
-cursor:pointer;
-margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#3b82f6;
+    color:white;
+    font-weight:bold;
 }
 
-.username-box{
-display:flex;
-justify-content:space-between;
-background:#f2f2f2;
-padding:10px;
-border-radius:5px;
-margin-top:10px;
+button:hover{
+    background:#2563eb;
+}
+
+.result-box{
+    background:#0f172a;
+    padding:15px;
+    border-radius:8px;
+    min-height:30px;
+    font-size:18px;
 }
