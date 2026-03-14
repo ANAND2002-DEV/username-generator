@@ -58,3 +58,46 @@ resultDiv.appendChild(box);
 }
 
 }
+function generateStylish(name){
+
+const styles = [
+
+"𝓐𝓷𝓪𝓷𝓭",
+"Ａｎａｎｄ",
+"『"+name+"』",
+"꧁"+name+"꧂",
+"★"+name+"★",
+"么"+name+"么",
+"✧"+name+"✧",
+"⚡"+name+"⚡"
+
+];
+
+const stylishDiv = document.getElementById("stylishResult");
+stylishDiv.innerHTML = "";
+
+styles.forEach(function(username){
+
+const box = document.createElement("div");
+box.className = "username";
+
+const text = document.createElement("span");
+text.innerText = username.replace("Anand",name);
+
+const copyBtn = document.createElement("button");
+copyBtn.innerText = "Copy";
+copyBtn.className = "copyBtn";
+
+copyBtn.onclick = function(){
+navigator.clipboard.writeText(text.innerText);
+copyBtn.innerText = "Copied!";
+};
+
+box.appendChild(text);
+box.appendChild(copyBtn);
+
+stylishDiv.appendChild(box);
+
+});
+
+}
