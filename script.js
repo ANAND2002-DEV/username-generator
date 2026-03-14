@@ -69,27 +69,32 @@ const styles = [
 "★"+name+"★",
 "么"+name+"么",
 "✧"+name+"✧",
-"⚡"+name+"⚡"
+"⚡"+name+"⚡",
+"ツ"+name+"ツ",
+"乂"+name+"乂"
 
 ];
 
 const stylishDiv = document.getElementById("stylishResult");
+
 stylishDiv.innerHTML = "";
 
-styles.forEach(function(username){
+styles.forEach(function(style){
+
+const username = style.replace(/Anand/g, name);
 
 const box = document.createElement("div");
 box.className = "username";
 
 const text = document.createElement("span");
-text.innerText = username.replace("Anand",name);
+text.innerText = username;
 
 const copyBtn = document.createElement("button");
 copyBtn.innerText = "Copy";
 copyBtn.className = "copyBtn";
 
 copyBtn.onclick = function(){
-navigator.clipboard.writeText(text.innerText);
+navigator.clipboard.writeText(username);
 copyBtn.innerText = "Copied!";
 };
 
