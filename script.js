@@ -1,6 +1,6 @@
 function generateUsernames(){
 
-    const name = document.getElementById("nameInput").value.trim();
+    const name = document.getElementById("nameInput").value.trim().replace(/\s+/g,'');
 
     if(name === ""){
         alert("Please enter your name");
