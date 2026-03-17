@@ -1,4 +1,4 @@
-function generateUsernames(clear = true){
+function generateUsernames(){
 
 const name = document.getElementById("nameInput").value.trim().replace(/\s+/g,'');
 
@@ -21,10 +21,8 @@ const suffixes=[
 
 const resultDiv=document.getElementById("result");
 
-// ✅ Only clear when clicking "Generate"
-if(clear){
+/* ✅ Always clear old usernames */
 resultDiv.innerHTML="";
-}
 
 for(let i=0;i<10;i++){
 
@@ -56,7 +54,7 @@ resultDiv.appendChild(box);
 
 }
 
-// ✅ Stylish usernames always refresh (not stack)
+/* ✅ Always refresh stylish usernames */
 generateStylish(name);
 
 }
@@ -80,7 +78,7 @@ const styles=[
 
 const stylishDiv=document.getElementById("stylishResult");
 
-// keep clean (better UX)
+/* ✅ Always clear stylish section */
 stylishDiv.innerHTML="";
 
 styles.forEach(function(username){
@@ -108,6 +106,7 @@ stylishDiv.appendChild(box);
 });
 
 }
+
 
 
 function copyAll(){
