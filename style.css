@@ -48,6 +48,7 @@ flex-wrap:wrap;
 margin-bottom:10px;
 }
 
+/* ✅ FIX START */
 button{
 padding:8px 16px;
 border:none;
@@ -55,7 +56,13 @@ border-radius:6px;
 background:#3b82f6;
 color:white;
 cursor:pointer;
+
+/* prevent stretching */
+width:auto;
+height:auto;
+flex:unset;
 }
+/* ✅ FIX END */
 
 button:hover{
 background:#2563eb;
@@ -71,6 +78,10 @@ border:none;
 border-radius:6px;
 color:white;
 cursor:pointer;
+
+/* prevent full height bug */
+width:auto;
+height:auto;
 }
 
 .copyAllBtn:hover{
@@ -88,8 +99,18 @@ justify-content:space-between;
 align-items:center;
 }
 
+/* ✅ small improvement */
+.username span{
+word-break:break-word;
+}
+
 .copyBtn{
 background:#22c55e;
 padding:5px 10px;
 font-size:12px;
+
+/* prevent stretch */
+width:auto;
+height:auto;
+flex-shrink:0;
 }
