@@ -1,4 +1,4 @@
-function generateUsernames() {
+function generateUsernames(clear = true) {
 
 const name = document.getElementById("nameInput").value.trim().replace(/\s+/g,'');
 
@@ -20,12 +20,20 @@ const suffixes = [
 ];
 
 const resultDiv = document.getElementById("result");
+
+/* ✅ Clear only if Generate button */
+if (clear) {
 resultDiv.innerHTML = "";
+}
 
-/* ✅ Avoid duplicates */
-const used = new Set();
+/* ✅ Track existing usernames (prevents duplicates even on Generate More) */
+const existing = new Set(
+[...document.querySelectorAll("#result span")].map(el => el.innerText)
+);
 
-while (used.size < 10) {
+let count = 0;
+
+while (count < 10) {
 
 const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
 const symbol = symbols[Math.floor(Math.random() * symbols.length)];
@@ -33,8 +41,9 @@ const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
 
 const username = prefix + symbol + name + suffix;
 
-if (!used.has(username)) {
-used.add(username);
+if (!existing.has(username)) {
+existing.add(username);
+count++;
 
 const box = document.createElement("div");
 box.className = "username";
@@ -60,8 +69,10 @@ resultDiv.appendChild(box);
 
 }
 
-/* ✅ Refresh stylish usernames */
+/* ✅ Stylish refresh only on fresh generate */
+if (clear) {
 generateStylish(name);
+}
 
 }
 
@@ -91,10 +102,10 @@ const stylishDiv = document.getElementById("stylishResult");
 /* ✅ Clear old */
 stylishDiv.innerHTML = "";
 
-/* 🔥 Shuffle for randomness */
+/* 🔥 Shuffle */
 styles.sort(() => Math.random() - 0.5);
 
-/* 🔥 Pick random 10 */
+/* 🔥 Pick 10 */
 const selected = styles.slice(0, 10);
 
 selected.forEach(function (username) {
