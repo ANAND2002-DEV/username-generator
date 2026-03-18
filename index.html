@@ -2,41 +2,43 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Username Generator</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Username Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-<h1>Username Generator</h1>
+    <h1>Username Generator</h1>
 
-<p class="tagline">
-Generate cool gaming, Instagram and stylish usernames instantly.
-</p>
+    <p class="tagline">
+      Generate cool gaming, Instagram and stylish usernames instantly.
+    </p>
 
-<input type="text" id="nameInput" placeholder="Enter your name">
+    <input type="text" id="nameInput" placeholder="Enter your name">
 
-<div class="buttons">
-<button onclick="generateUsernames()">Generate</button>
-<button onclick="generateUsernames()">Generate More</button>
-  
-<button class="copyAllBtn" onclick="copyAll()">Copy All</button>
+    <!-- Buttons -->
+    <div class="buttons">
+      <button onclick="generateUsernames()">Generate</button>
+      <button onclick="generateUsernames()">Generate More</button>
+      <button class="copyAllBtn" onclick="copyAll()">Copy All</button>
+    </div>
 
-<div id="result"></div>
+    <!-- Normal usernames -->
+    <h2>Generated Usernames</h2>
+    <div id="result"></div>
 
-<h2>Stylish Usernames</h2>
+    <!-- Stylish usernames -->
+    <h2>Stylish Usernames</h2>
+    <div id="stylishResult"></div>
 
-<div id="stylishResult"></div>
+  </div>
 
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
-</html>
 
+</html>
