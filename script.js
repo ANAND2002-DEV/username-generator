@@ -1,69 +1,75 @@
-function generateUsernames(){
+function generateUsernames() {
 
 const name = document.getElementById("nameInput").value.trim().replace(/\s+/g,'');
 
-if(name === ""){
+if (name === "") {
 alert("Please enter your name");
 return;
 }
 
-const prefixes=[
+const prefixes = [
 "king","real","its","the","legend","ghost","dark","official"
 ];
 
-const symbols=[
+const symbols = [
 "_",".","-","x","xo","__","xx","_x"
 ];
 
-const suffixes=[
+const suffixes = [
 "7","77","99","111","444","999","yt","op","ff","pro","404"
 ];
 
-const resultDiv=document.getElementById("result");
+const resultDiv = document.getElementById("result");
+resultDiv.innerHTML = "";
 
-/* ✅ Always clear old usernames */
-resultDiv.innerHTML="";
+/* ✅ Avoid duplicates */
+const used = new Set();
 
-for(let i=0;i<10;i++){
+while (used.size < 10) {
 
-const prefix=prefixes[Math.floor(Math.random()*prefixes.length)];
-const symbol=symbols[Math.floor(Math.random()*symbols.length)];
-const suffix=suffixes[Math.floor(Math.random()*suffixes.length)];
+const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
 
-const username=prefix+symbol+name+suffix;
+const username = prefix + symbol + name + suffix;
 
-const box=document.createElement("div");
-box.className="username";
+if (!used.has(username)) {
+used.add(username);
 
-const text=document.createElement("span");
-text.innerText=username;
+const box = document.createElement("div");
+box.className = "username";
 
-const copyBtn=document.createElement("button");
-copyBtn.innerText="Copy";
-copyBtn.className="copyBtn";
+const text = document.createElement("span");
+text.innerText = username;
 
-copyBtn.onclick=function(){
+const copyBtn = document.createElement("button");
+copyBtn.innerText = "Copy";
+copyBtn.className = "copyBtn";
+
+copyBtn.onclick = function () {
 navigator.clipboard.writeText(username);
-copyBtn.innerText="Copied!";
+copyBtn.innerText = "Copied!";
+setTimeout(() => copyBtn.innerText = "Copy", 1500);
 };
 
 box.appendChild(text);
 box.appendChild(copyBtn);
 
 resultDiv.appendChild(box);
+}
 
 }
 
-/* ✅ Always refresh stylish usernames */
+/* ✅ Refresh stylish usernames */
 generateStylish(name);
 
 }
 
 
 
-function generateStylish(name){
+function generateStylish(name) {
 
-const styles=[
+let styles = [
 "『"+name+"』",
 "꧁"+name+"꧂",
 "★"+name+"★",
@@ -73,29 +79,40 @@ const styles=[
 "⚡"+name+"⚡",
 "✿"+name+"✿",
 "༒"+name+"༒",
-"彡"+name+"彡"
+"彡"+name+"彡",
+"×"+name+"×",
+"•"+name+"•",
+"°"+name+"°",
+"♛"+name+"♛"
 ];
 
-const stylishDiv=document.getElementById("stylishResult");
+const stylishDiv = document.getElementById("stylishResult");
 
-/* ✅ Always clear stylish section */
-stylishDiv.innerHTML="";
+/* ✅ Clear old */
+stylishDiv.innerHTML = "";
 
-styles.forEach(function(username){
+/* 🔥 Shuffle for randomness */
+styles.sort(() => Math.random() - 0.5);
 
-const box=document.createElement("div");
-box.className="username";
+/* 🔥 Pick random 10 */
+const selected = styles.slice(0, 10);
 
-const text=document.createElement("span");
-text.innerText=username;
+selected.forEach(function (username) {
 
-const copyBtn=document.createElement("button");
-copyBtn.innerText="Copy";
-copyBtn.className="copyBtn";
+const box = document.createElement("div");
+box.className = "username";
 
-copyBtn.onclick=function(){
+const text = document.createElement("span");
+text.innerText = username;
+
+const copyBtn = document.createElement("button");
+copyBtn.innerText = "Copy";
+copyBtn.className = "copyBtn";
+
+copyBtn.onclick = function () {
 navigator.clipboard.writeText(username);
-copyBtn.innerText="Copied!";
+copyBtn.innerText = "Copied!";
+setTimeout(() => copyBtn.innerText = "Copy", 1500);
 };
 
 box.appendChild(text);
@@ -109,19 +126,19 @@ stylishDiv.appendChild(box);
 
 
 
-function copyAll(){
+function copyAll() {
 
-const usernames=document.querySelectorAll("#result span");
+const usernames = document.querySelectorAll("#result span");
 
-if(usernames.length===0){
+if (usernames.length === 0) {
 alert("Generate usernames first!");
 return;
 }
 
-let text="";
+let text = "";
 
-usernames.forEach(function(item){
-text+=item.innerText+"\n";
+usernames.forEach(function (item) {
+text += item.innerText + "\n";
 });
 
 navigator.clipboard.writeText(text);
