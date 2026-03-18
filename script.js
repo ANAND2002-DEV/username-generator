@@ -1,4 +1,4 @@
-function generateUsernames(clear = true) {
+function generateUsernames() {
 
 const name = document.getElementById("nameInput").value.trim().replace(/\s+/g,'');
 
@@ -6,6 +6,40 @@ if (name === "") {
 alert("Please enter your name");
 return;
 }
+
+const resultDiv = document.getElementById("result");
+
+/* ✅ CLEAR (main generate) */
+resultDiv.innerHTML = "";
+
+/* ✅ Generate fresh usernames */
+generateList(name);
+
+/* ✅ Refresh stylish */
+generateStylish(name);
+
+}
+
+
+
+function generateMoreUsernames() {
+
+const name = document.getElementById("nameInput").value.trim().replace(/\s+/g,'');
+
+if (name === "") {
+alert("Please enter your name");
+return;
+}
+
+/* ✅ Only add more */
+generateList(name);
+
+}
+
+
+
+/* 🔥 COMMON GENERATOR */
+function generateList(name) {
 
 const prefixes = [
 "king","real","its","the","legend","ghost","dark","official"
@@ -21,12 +55,7 @@ const suffixes = [
 
 const resultDiv = document.getElementById("result");
 
-/* ✅ Clear only if Generate button */
-if (clear) {
-resultDiv.innerHTML = "";
-}
-
-/* ✅ Track existing usernames (prevents duplicates even on Generate More) */
+/* ✅ Prevent duplicates */
 const existing = new Set(
 [...document.querySelectorAll("#result span")].map(el => el.innerText)
 );
@@ -69,11 +98,6 @@ resultDiv.appendChild(box);
 
 }
 
-/* ✅ Stylish refresh only on fresh generate */
-if (clear) {
-generateStylish(name);
-}
-
 }
 
 
@@ -99,7 +123,7 @@ let styles = [
 
 const stylishDiv = document.getElementById("stylishResult");
 
-/* ✅ Clear old */
+/* ✅ Clear */
 stylishDiv.innerHTML = "";
 
 /* 🔥 Shuffle */
