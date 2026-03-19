@@ -11,7 +11,7 @@ function getName() {
     return null;
   }
 
-  return name;
+  return name.toLowerCase(); // 🔥 important fix
 }
 
 
@@ -24,7 +24,7 @@ function generateUsernames() {
 }
 
 
-/* 🔵 GENERATE MORE (replace with new set) */
+/* 🔵 GENERATE MORE */
 function generateMoreUsernames() {
   const name = getName();
   if (!name) return;
@@ -41,7 +41,6 @@ function generateNewSet(name) {
   const suffixes = ["7","77","99","111","444","999","yt","op","ff","pro","404"];
 
   const resultDiv = document.getElementById("result");
-
   resultDiv.innerHTML = "";
 
   const used = new Set();
@@ -80,13 +79,12 @@ function generateNewSet(name) {
     }
   }
 
-  /* ✅ Refresh sections */
   generateStylish(name);
-  generateFancyFonts(name); /* 🔥 NEW FEATURE */
+  generateFancyFonts(name);
 }
 
 
-/* ✨ STYLISH SYMBOL USERNAMES */
+/* ✨ STYLISH */
 function generateStylish(name) {
 
   let styles = [
@@ -127,34 +125,39 @@ function generateStylish(name) {
 }
 
 
-/* 💎 FANCY FONT USERNAMES (NEW 🔥) */
+/* 💎 FANCY (FIXED) */
 function generateFancyFonts(name) {
 
-  const mapStyle = (alphabet) => 
-    name.split('').map(c => {
-      const i = "abcdefghijklmnopqrstuvwxyz".indexOf(c.toLowerCase());
-      return i !== -1 ? alphabet[i] : c;
-    }).join('');
+  const fancyDiv = document.getElementById("fancyResult");
 
-  const fancyStyles = [
-    mapStyle("𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃"),
-    mapStyle("𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳"),
-    mapStyle("𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"),
-    mapStyle("𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"),
-    mapStyle("𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣")
+  /* 🔥 safety fix */
+  if (!fancyDiv) return;
+
+  fancyDiv.innerHTML = "";
+
+  const alphabets = "abcdefghijklmnopqrstuvwxyz";
+
+  const styles = [
+    "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃",
+    "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳",
+    "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫",
+    "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷",
+    "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
   ];
 
   const symbols = ["✦","★","⚡","✿","༒","♛","❖","✧"];
 
-  const fancyDiv = document.getElementById("fancyResult");
-  if (!fancyDiv) return; // safety
+  styles.forEach(style => {
 
-  fancyDiv.innerHTML = "";
+    let fancyText = "";
 
-  fancyStyles.forEach(text => {
+    for (let char of name) {
+      const index = alphabets.indexOf(char);
+      fancyText += index !== -1 ? style[index] : char;
+    }
 
     const sym = symbols[Math.floor(Math.random()*symbols.length)];
-    const username = sym + text + sym;
+    const username = sym + fancyText + sym;
 
     const box = document.createElement("div");
     box.className = "username";
